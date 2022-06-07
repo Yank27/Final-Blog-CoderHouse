@@ -12,6 +12,10 @@ Los usuarios del post una vez registrados, pueden acceder también a un chat glo
 
 [![Alt text](https://img.youtube.com/vi/ENxuZR9uQJw/0.jpg)](https://www.youtube.com/watch?v=ENxuZR9uQJw)
 
+Link al video
+
+https://www.youtube.com/watch?v=ENxuZR9uQJw
+
 ***
 
 ## **Partes del blog**
