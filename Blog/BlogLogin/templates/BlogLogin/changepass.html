@@ -1,0 +1,25 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-18">
+        <p></p>
+        <form method="post" class="text-right">{% csrf_token %}
+          <br/>
+          {{ form }}
+          <p></p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-dark">
+            Save new password
+          </button>
+        </form>
+        <p></p>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

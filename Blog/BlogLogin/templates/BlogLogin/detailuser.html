@@ -1,0 +1,51 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-18">
+        <h1 class="mt-4 text-center">Profile user</h1>
+            <h3>
+                <span style="font-size:15px">
+                    <p class="text-center">
+                        Full name : 
+                        <i>
+                            {{ user.first_name }}{{ " " }}{{ user.last_name }}
+                        </i>
+                    </p>
+                    <p class="text-center">
+                        Username : 
+                        <i>
+                            {{ user.username }}
+                        </i>
+                    </p>
+                    <p class="text-center"> 
+                        Email : 
+                        <i>
+                            {{ user.email }}
+                        </i>
+                    </p>
+                </span>
+            </h3>
+            <center><img  class="text-center" src="{{ avatar }}" height="256px" width="256px" alt="avatar"></center>
+            <p> </p>
+            <p class="text-center">
+            <a type="button" class="btn btn-dark" href="{% url 'update_user' %}">
+                Edit information
+            </a>
+        </p>
+        <p> </p>
+            <p class="text-center">
+            <a type="button" class="btn btn-dark" href="{% url 'changepasswd' %}">
+                Change password
+            </a></p>
+        </div>
+    </div>
+</div>
+
+
+<p> </p>
+
+{% endblock %}

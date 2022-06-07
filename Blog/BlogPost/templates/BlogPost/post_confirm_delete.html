@@ -1,0 +1,25 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<p> </p>
+<form method="post" class="text-center" style="color:black">{% csrf_token %}
+    <span style="font-family:Arial,Helvetica,sans-serif">
+        <strong>
+            <p>
+                Confirm delete post: 
+            </p>
+        </strong>
+    </span>
+    <strong>
+        <p>
+            {{ object }}
+        </p>
+    </strong>
+    <input type="submit"  class="btn btn-danger" value="Delete?">
+</form>
+<p> </p>
+
+{% endblock %}

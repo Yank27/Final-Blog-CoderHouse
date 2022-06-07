@@ -1,0 +1,24 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-18">
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                <p> </p>
+                <table>
+                    {{ form.as_table}}
+                    {{ form.media }}
+                </table>
+                <p> </p>
+                <input type="submit"  class="btn btn-dark" value="Save profile">
+                <p> </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

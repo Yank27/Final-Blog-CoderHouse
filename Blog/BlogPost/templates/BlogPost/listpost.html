@@ -1,0 +1,94 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="row">
+    <div class="col-lg-18">
+      <h2 class="mt-4 text-center">List of post</h2>
+        <div>
+            <h4 class="text-center">
+                Search a post title:
+            </h4>
+            <form action="{% url 'search' %}" method="GET" class="text-center">
+                <input type="text" name="title" id="title">
+                <input button type="submit" class="btn btn-dark" value="Search">
+            </form>
+            {% if user.is_authenticated %}
+                <p> </p>
+                <h4 class="text-center">
+                    Do you want to create one?
+                </h4>
+                <p class="text-center">
+                    <a type="button" class="btn btn-dark" href="{% url 'createpost' %}">
+                        Create Post
+                    </a>
+                </p>
+                <p> </p>
+            {% endif %}
+            <hr>
+        </div>
+    </div>
+</div>
+{% if object_list %}
+{% for post in object_list %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-18">
+            <p> </p>
+                <h5>
+                    <p class="text-center text-uppercase">
+                        {{ post }}
+                    </p>
+                </h5>
+                <h6>
+                    <p class="text-center"> 
+                        {{ post.subtitle }}
+                    </p>
+                </h6>
+                <h6>
+                    <p class="text-center"> 
+                        Post by {{ post.author }}
+                    </p>
+                </h6>
+                <p>
+                    {{ post.content|safe|slice:':350' }}.....
+                </p>
+                <P></P>
+                {% if not request.useris_authenticated %}
+                    <p class="text-center">
+                        <a type="button" class="btn btn-dark" href="{% url 'detail_post' post.id %}">
+                            View more
+                        </a>
+                    </p>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <p> </p>
+                    <p class="text-center">
+                        {% if user.is_superuser %}
+                            <a type="button" class="btn btn-danger" href="{% url 'delete_post' post.id %}">
+                                Delete
+                            </a>
+                        {% endif %}
+                    </p>
+                    <p> </p>
+                {% endif %}
+                <p> </p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
+{% else %}
+    <p> </p>
+    <div class="col text-center">
+        <h4>No pages yet!</h4>
+    </div>
+    <p> </p>
+{% endif %}
+
+
+{% endblock %}

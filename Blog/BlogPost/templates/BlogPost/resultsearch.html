@@ -1,0 +1,40 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+{% if post %}
+  <p></p>
+  <h3 class="text-center">
+    Post found:
+  </h3>
+  <h5 class="text-center">
+    {% for title in post %}
+      <p></p>
+        <li>
+          <a href="{% url 'detail_post' title.id %}">
+            {{title.title}}
+          </a>
+        </li>
+      <p></p>
+    {% endfor %}
+  </h5>
+<p></p>
+{% else %}
+<p></p>
+<div class="text-center">
+    <h5>
+      There is no post with that title!
+    </h5>
+</div>
+<p></p>
+{% endif %}
+<p class="text-center">
+    <a type="button" class="btn btn-dark btn-sm" href="{% url 'listpost' %}">
+      Return to list of post
+    </a>
+  </p>
+<p></p>
+
+{% endblock %}

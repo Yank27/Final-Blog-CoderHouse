@@ -1,0 +1,49 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+{% if user.is_superuser %}
+    {% if object_list %}
+        {% for user in object_list %}
+            <p> </p>
+            <h5>
+                <span style="font-size:20px">
+                    <p class="text-left text-uppercase">
+                        &nbsp;{{ user }}
+                    </li>
+                </p>
+            </h5>
+            <h5>
+                <span style="font-size:15px">
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        Full name: {{ user.first_name }} {{ user.last_name }}
+                    </p>
+                    <p> </p>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        Contact email: {{ user.email}}
+                    </p>
+                    <p> </p>
+                </span>
+            </h5>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p> </p>
+            <div class="col text-center">
+                <h4>
+                    Not users found
+                </h4>
+            </div>
+        <p> </p>
+    {% endif %}
+{% else %}
+    <h2 class="text-center">
+        Page not found! <p style="color:red"> Error 404 </p>
+    </h2>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+{% if user.is_authenticated %}
+    <h2 class="text-center">
+        You are registered!
+    </h2>
+{% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-18">
+             <p> </p>
+                {% if messaje %}
+                    <p>
+                        {{messaje}}
+                    </p>
+                {% else %}
+                    <form method="post">{% csrf_token %}
+                        <p> </p>
+                        {{form.as_p}}
+                        <p></p>
+                        <button type="submit" class="btn btn-success">
+                            Register
+                        </button>
+                        <p></p>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

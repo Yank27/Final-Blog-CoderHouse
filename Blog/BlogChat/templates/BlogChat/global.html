@@ -1,0 +1,63 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+{% if object_list %}
+<div class="row">
+    <div class="col-lg-18">
+      <h1 class="mt-4 text-center">Global Chat</h1>
+            {% for chat in object_list %}
+                {% if user.is_authenticated %}
+                    <div class="container-sm border p-3  my-1">
+                        <table class="table table-striped table-dark">
+                            <p> </p>
+                            <thead>
+                                <p style="color:black">
+                                    <p class="text-right">
+                                        <span style="font-family:Arial,Helvetica,sans-serif">
+                                            <strong>
+                                                {{ chat|safe }}
+                                            </strong>
+                                        </span>
+                                    </p>
+                                </p>
+                            </thead>
+                            <div class="container border">
+                                <tbody>
+                                    <p style="color:gray">
+                                        <span style="font-size:15px">
+                                            Send by {{ chat.user }} at {{ chat.date }}
+                                        </span>
+                                    </p>
+                                </tbody>
+                            </div>
+                        </table>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<p> </p>
+    <p>
+        Not messages yet
+    </p>
+<p> </p>
+
+{% endif %}
+
+<p> </p>
+<p class="text-center">
+    <a type="button" class="btn btn-dark" href="{% url 'createchat' %}">
+        Send message
+    </a>
+</p>
+<p> </p>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-18">
+            <p> </p>
+            <h4 class="text-center">
+                Post {{ object.title }}
+            </h4>
+            <p> </p>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                {{ form.media }}
+                <p> </p>
+                <input type="submit" class="btn btn-success" value="Edit post">
+            </form>
+            <p> </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

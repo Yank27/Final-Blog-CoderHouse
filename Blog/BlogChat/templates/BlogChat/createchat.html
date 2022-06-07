@@ -1,0 +1,23 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<p> </p>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p> </p>
+    <div class="container-sm border p-3  my-1">
+        <h5>Please redact your mensaje</h5>
+        <table class="table table-striped table-dark">
+            <p> </p>
+            <thead>
+                <p style="color:black">
+                    {{ form.text }}
+                </p>
+            </thead>
+        </table>
+        <input class="btn btn-dark" type="submit" value="Send message">
+    </div>
+</form>
+<p> </p>
+{% endblock %}

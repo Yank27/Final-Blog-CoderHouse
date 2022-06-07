@@ -1,0 +1,48 @@
+{% extends "BlogHome/home.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-18">
+        <h2 class="mt-4 text-center">
+          {{ object.title }}
+        </h2>
+        <h6 class="text-center">
+          Posted by: {{ object.author }}
+        </h6>
+        <h6 class="text-center">
+          {{ object.date }}
+        </h6>
+        <hr>
+        <h3 class="mt-4 text-center">
+          {{ object.subtitle }}
+        </h3>
+        <p>
+          {{ object.content|safe }}
+        </p>
+        <p class="mt-4 text-center">
+          <img src="/media/{{ object.image }}" alt="{{ object.title }}" class="img-fluid" width="550">
+        </p>
+        <p> </p>
+        </hr>
+      </div>
+  </div>
+  <p class="text-right">
+    <a type="button" class="btn btn-dark btn-sm" href="{% url 'listpost' %}">
+      Return to list of post
+    </a>
+  </p>
+  {% if user.is_authenticated %}
+    <p class="text-center">
+      <a type="button" class="btn btn-dark" href="{% url 'update_post' post.id %}">
+        Edit post
+      </a>
+    </p>
+  {% endif %}
+</div>
+
+{% endblock %}
+
