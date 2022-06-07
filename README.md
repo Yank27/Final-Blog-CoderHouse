@@ -10,7 +10,7 @@ Los usuarios del post una vez registrados, pueden acceder también a un chat glo
 
 **Video explicativo del funcionamiento**
 
-[![Alt text](https://img.youtube.com/vi/P6H90I4M1uE/0.jpg)](https://www.youtube.com/watch?v=P6H90I4M1uE)
+[![Alt text](https://img.youtube.com/vi/ENxuZR9uQJw/0.jpg)](https://www.youtube.com/watch?v=ENxuZR9uQJw)
 
 ***
 
